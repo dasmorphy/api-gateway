@@ -21,13 +21,13 @@ python3 -m swagger_server
 and open your browser to here:
 
 ```
-http://localhost:2122/rest/zent-live-server-api/v1.0/ui/#/
+http://localhost:2123/rest/api-gateway/v1.0/ui/#/
 ```
 
 Your Swagger definition lives here:
 
 ```
-http://localhost:2122/swagger.json
+http://localhost:2123/swagger.json
 ```
 
 To launch the integration tests, use tox:
@@ -45,5 +45,5 @@ To run the server on a Docker container, please execute the following from the r
 docker build -t swagger_server .
 
 # starting up a container
-docker run -p 2122:2122 swagger_server
+docker run -p 2123:2123 swagger_server
 ```

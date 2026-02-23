@@ -14,34 +14,29 @@ class ResponseError(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, error_code: int=None, internal_transaction_id: str=None, external_transaction_id: str=None, message: str=None):  # noqa: E501
+    def __init__(self, error_code: int=None, internal_transaction_id: str=None, message: str=None):  # noqa: E501
         """ResponseError - a model defined in Swagger
 
         :param error_code: The error_code of this ResponseError.  # noqa: E501
         :type error_code: int
         :param internal_transaction_id: The internal_transaction_id of this ResponseError.  # noqa: E501
         :type internal_transaction_id: str
-        :param external_transaction_id: The external_transaction_id of this ResponseError.  # noqa: E501
-        :type external_transaction_id: str
         :param message: The message of this ResponseError.  # noqa: E501
         :type message: str
         """
         self.swagger_types = {
             'error_code': int,
             'internal_transaction_id': str,
-            'external_transaction_id': str,
             'message': str
         }
 
         self.attribute_map = {
             'error_code': 'errorCode',
             'internal_transaction_id': 'internalTransactionId',
-            'external_transaction_id': 'externalTransactionId',
             'message': 'message'
         }
         self._error_code = error_code
         self._internal_transaction_id = internal_transaction_id
-        self._external_transaction_id = external_transaction_id
         self._message = message
 
     @classmethod
@@ -96,27 +91,6 @@ class ResponseError(Model):
         """
 
         self._internal_transaction_id = internal_transaction_id
-
-    @property
-    def external_transaction_id(self) -> str:
-        """Gets the external_transaction_id of this ResponseError.
-
-
-        :return: The external_transaction_id of this ResponseError.
-        :rtype: str
-        """
-        return self._external_transaction_id
-
-    @external_transaction_id.setter
-    def external_transaction_id(self, external_transaction_id: str):
-        """Sets the external_transaction_id of this ResponseError.
-
-
-        :param external_transaction_id: The external_transaction_id of this ResponseError.
-        :type external_transaction_id: str
-        """
-
-        self._external_transaction_id = external_transaction_id
 
     @property
     def message(self) -> str:

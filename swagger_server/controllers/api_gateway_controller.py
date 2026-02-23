@@ -22,17 +22,9 @@ class ApiGatewayView(MethodView):
         status_code = 500
         try:
             if connexion.request.headers:
-                start_time = default_timer()
                 internal_transaction_id = str(generate_internal_transaction_id())
-                message = f"start request: {function_name}"
-                logger.info(message, internal=internal_transaction_id, external=internal_transaction_id)
                 result = self.api_gateway_use_case.validate_token(request.headers, internal_transaction_id)
-                response["error_code"] = 0
-                response["message"] = "Historial de bitacoras obtenido correctamente"
-                response["data"] = result
-                end_time = default_timer()
-                logger.info(f"Fin de la transacción, procesada en : {end_time - start_time} milisegundos",
-                            internal=internal_transaction_id, external=internal_transaction_id)
+                response = result
                 status_code = 200
         except Exception as ex:
             response, status_code = CustomAPIException.check_exception(ex, function_name, internal_transaction_id)

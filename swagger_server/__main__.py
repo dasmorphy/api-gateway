@@ -15,8 +15,8 @@ from flask_cors import CORS
 from swagger_server.utils.log import configure_logger
 
 # VARIABLES (CAMBIAR DE PENDIENDO DE CADA MS)
-MS_NAME: str = 'zent-live-server-ms'
-MS_PORT: int = 2122
+MS_NAME: str = 'api-gateway-ms'
+MS_PORT: int = 2123
 ORIGINS = [] #Origins permitidos en prod
 # ------------------------------------------------------------------------
 log()
@@ -35,8 +35,6 @@ def custom_error_handler(error):
     error_response = ResponseError(
         error_code=-1,
         message=message,
-        data=None,
-        external_transaction_id=external_transaction_id,
         internal_transaction_id=None
     )
     try:

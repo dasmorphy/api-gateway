@@ -4,7 +4,7 @@ info:
   description: Api gateway microservice
   version: 1.0.0
 servers:
-- url: /rest/api-gateway-api/v1.0/
+- url: /rest/api-gateway/v1.0/
 paths:
   /get/validate-token-user:
     get:
@@ -15,12 +15,12 @@ paths:
         Api gateway que se encarga de validar el token del usuario para el aplicativo Zentinel tanto web  como movil
       operationId: get_validate_token_user
       parameters:
-      - name: Authorization
+      - name: token
         in: header
         required: true
         schema:
           type: string
-          example: Bearer fcea920f7412b5da7be0cf42b8c93759
+          example: fcea920f7412b5da7be0cf42b8c93759
       responses:
         "200":
           description: OK
@@ -52,7 +52,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ResponseError"
-      x-openapi-router-controller: swagger_server.controllers.api_gateway_controller.EventLiveView
+      x-openapi-router-controller: swagger_server.controllers.api_gateway_controller.ApiGatewayView
 components:
   schemas:
     GenericResponse:

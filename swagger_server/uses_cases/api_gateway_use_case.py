@@ -7,4 +7,4 @@ class ApiGatewayUseCase:
         self.api_gateway_repository = api_gateway_repository
 
     def validate_token(self, headers, internal):
-        return self.api_gateway_repository.validate_token(headers.get('Authorization'), internal)
+        return self.api_gateway_repository.validate_token(headers.get('token'), internal)

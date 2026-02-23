@@ -10,7 +10,7 @@ class ApiGatewayRepository:
         self.redis_client = RedisClient()
 
 
-    def validate_token(self, token, internal, external):
+    def validate_token(self, token, internal):
         try:
             user_id = self.redis_client.client.get(f"token:{token}")
 
@@ -23,5 +23,5 @@ class ApiGatewayRepository:
             }
 
         except Exception as exception:
-            logger.error('Error: {}', str(exception), internal=internal, external=external)
+            logger.error('Error: {}', str(exception), internal=internal)
             raise CustomAPIException("Usuario no autenticado o expirado", 401)
