@@ -13,7 +13,6 @@ def clear_context(response):
     # Se agregan headers en response
     response.headers['X-Channel'] = g.channel
     response.headers['X-System'] = g.system
-    response.headers['X-External-Transaction-Id'] = g.external
     response.headers['X-Internal-Transaction-Id'] = g.internal
 
     return response

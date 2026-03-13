@@ -36,9 +36,7 @@ class CustomAPIException(Exception):
                 line = traceback_info[-1][1]
                 function_name = traceback_info[-1][2]
 
-            internal, external = internal_process
-            response.internal_transaction_id = internal
-            response.external_transaction_id = external
+            response.internal_transaction_id = internal_process
             if isinstance(error, CustomAPIException):  # Es un error esperado, para notificar error al cliente
                 status_code = error.status_code
                 message = str(error)
