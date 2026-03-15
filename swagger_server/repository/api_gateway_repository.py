@@ -33,7 +33,6 @@ class ApiGatewayRepository:
 
                 # renovar sesión
                 self.redis_client.client.expire(f"token:{token}", ttl)
-                self.redis_client.client.expire(f"user_session:{user_id}", ttl)
 
             return {
                 "valid": True,
@@ -41,7 +40,6 @@ class ApiGatewayRepository:
             }
 
         except jwt.ExpiredSignatureError:
-            self.delete_session(token)
             raise CustomAPIException("Token expirado", 401)
 
         except jwt.InvalidTokenError:
@@ -50,13 +48,3 @@ class ApiGatewayRepository:
         except Exception as exception:
             logger.error('Error: {}', str(exception), internal=internal, external=internal)
             raise CustomAPIException("Usuario no autenticado o expirado", 401)
-        
-
-    def delete_session(self, token):
-        user_id = self.redis_client.client.get(f"token:{token}")
-        if user_id:
-            user_id = user_id.decode()  # redis devuelve bytes
-            self.redis_client.client.delete(
-                f"token:{token}",
-                f"user_session:{user_id}"
-            )
