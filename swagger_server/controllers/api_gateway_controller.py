@@ -19,7 +19,7 @@ class ApiGatewayView(MethodView):
     def get_validate_token_user(self):  # noqa: E501
         function_name = "get_validate_token_user"
         response = {}
-        status_code = 500
+        status_code = 401
         try:
             if connexion.request.headers:
                 internal_transaction_id = str(generate_internal_transaction_id())
