@@ -13,4 +13,4 @@ class ApiGatewayUseCase:
                 "user_id": 'user_id'
             }
 
-        return self.api_gateway_repository.validate_token(headers.get('token'), internal)
+        return self.api_gateway_repository.validate_token(headers.get('Authorization'), internal)
