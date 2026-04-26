@@ -22,6 +22,9 @@ class ApiGatewayView(MethodView):
         status_code = 401
         try:
             if connexion.request.headers:
+                token = connexion.request.headers.get('token')
+                if not token:
+                    raise CustomAPIException("Token requerido", 401)
                 internal_transaction_id = str(generate_internal_transaction_id())
                 result = self.api_gateway_use_case.validate_token(request.headers, internal_transaction_id)
                 response = result
