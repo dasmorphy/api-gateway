@@ -74,3 +74,5 @@ zipp==3.17.0
 psycopg2-binary==2.9.7
 argon2-cffi==25.1.0
 redis==5.0.7
+Flask-SQLAlchemy==3.0.5
+SQLAlchemy==2.0.19
