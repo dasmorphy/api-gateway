@@ -22,7 +22,8 @@ class ApiGatewayRepository:
             "data": {
                 "project_id": 1,
                 "token": token,
-            }
+            },
+            "externalTransactionId": internal
         }
         try:
             jwt.decode(
