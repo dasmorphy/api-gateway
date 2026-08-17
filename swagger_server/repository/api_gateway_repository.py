@@ -20,7 +20,6 @@ class ApiGatewayRepository:
         data_queue = {
             "channel": channel,
             "data": {
-                "project_id": 1,
                 "token": token,
             },
             "externalTransactionId": internal
